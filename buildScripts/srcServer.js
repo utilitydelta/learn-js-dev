@@ -3,12 +3,13 @@ import path from 'path';
 import open from 'open';
 import webpack from 'webpack';
 import config from '../webpack.config.dev';
+import webpackdevmiddleware from 'webpack-dev-middleware';
 
 const port =4000;
 const app = express();
 const compiler = webpack(config);
 
-app.use(require('webpack-dev-middleware')(compiler, {
+app.use(webpackdevmiddleware(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath
 }));
