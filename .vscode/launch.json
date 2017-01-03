@@ -10,6 +10,20 @@
             "name": "Debug Launch Web Server",
             "program": "${workspaceRoot}/buildScripts/srcServer.js",
             "cwd": "${workspaceRoot}"
+        },
+        {
+          "name": "mocha",
+          "type": "node",
+          "request": "launch",
+          "sourceMaps": true,
+          "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+          "stopOnEntry": false,
+          "args": ["buildScripts/testSetup.js", "src/**/*.test.js", "--reporter progress"], //you can specify paths to specific tests here
+          "cwd": "${workspaceRoot}",
+          "runtimeExecutable": null,
+          "env": {
+            "NODE_ENV": "testing"
+          }
         }
     ]
 }
